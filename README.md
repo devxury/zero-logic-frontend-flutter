@@ -1,5 +1,12 @@
 
 # 🌌 DAD-UI: Deep Autonomous-Driven UI (Experiment v1.0)
+![Python](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Flutter](https://img.shields.io/badge/Frontend-Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-Server%20Driven%20UI-ff69b4?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+![Status](https://img.shields.io/badge/Experiment-Active-success?style=for-the-badge)
+
+
 **Universal Server-Driven Architecture & Agnostic Edge Runtime**
 
 ![Login Screen Demo](images/sample_1.gif)
