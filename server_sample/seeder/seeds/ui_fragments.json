@@ -1,0 +1,311 @@
+[
+  {
+    "id": "frag.auth.login",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android"],
+    "props": {
+      "width": 420,
+      "padding": 40,
+      "radius": 24,
+      "blur": 30,
+      "gradient": ["#1AFFFFFF", "#05FFFFFF"],
+      "border_color": "$border.color.muted",
+      "border_width": 1,
+      "shadow_color": "$shadow.glow.primary",
+      "shadow_blur": 60,
+      "motion": "scale_bouncy",
+      "motion_duration": 800,
+      "align": "center",
+      "children": [
+        { 
+          "type": "atom.icon_button", 
+          "props": { "icon": "shieldCheck", "size": 64, "color": "$color.accent.primary", "mb": 24, "motion": "spring_up", "motion_delay": 200 } 
+        },
+        { 
+          "type": "atom.text", 
+          "props": { "text": "DEVXURY", "color": "$semantic.text_primary", "size": 32, "weight": "900", "mb": 8, "letter_spacing": 4, "font": "$font.family.display", "motion": "spring_up", "motion_delay": 300 } 
+        },
+        { 
+          "type": "atom.text", 
+          "props": { "text": "Secure Access Level 5", "color": "$semantic.text_muted", "size": 14, "mb": 40, "motion": "spring_up", "motion_delay": 400 } 
+        },
+        { 
+          "type": "atom.input", 
+          "props": { "bind_key": "form.email", "label": "Agent ID", "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 12, "mb": 16, "motion": "fade_in", "motion_delay": 500 } 
+        },
+        { 
+          "type": "atom.input", 
+          "props": { "bind_key": "form.password", "label": "Access Key", "is_password": true, "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 12, "mb": 32, "motion": "fade_in", "motion_delay": 600 } 
+        },
+        { 
+          "type": "atom.button", 
+          "props": { 
+            "label": "INITIATE UPLINK", "bg_color": "$color.accent.primary", "text_color": "#000000", "width": "100%", "height": 56, "radius": 12, "weight": "bold", "mb": 24, "shadow_color": "$shadow.glow.primary", "shadow_blur": 25, "motion": "spring_up", "motion_delay": 700,
+            "action": "ACT_LOGIN_HTTP", "payload": { "url": "/v1/auth/login", "field_mapping": { "email": "form.email", "password": "form.password" } } 
+          } 
+        },
+        { 
+          "type": "atom.button", 
+          "props": { 
+            "label": "Request new credentials", "bg_color": "transparent", "text_color": "$semantic.text_muted", "width": "100%", "motion": "fade_in", "motion_delay": 900,
+            "action": "ACT_NAVIGATE_SLOT", "payload": { "region_id": "content", "target_id": "frag.auth.register" } 
+          } 
+        }
+      ]
+    }
+  },
+  {
+    "id": "frag.auth.register",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android"],
+    "props": {
+      "width": 420,
+      "padding": 40,
+      "radius": 24,
+      "blur": 30,
+      "gradient": ["#1AFFFFFF", "#05FFFFFF"],
+      "border_color": "$border.color.muted",
+      "border_width": 1,
+      "shadow_color": "$semantic.success",
+      "shadow_blur": 40,
+      "motion": "slide_in_right",
+      "align": "center",
+      "children": [
+        { "type": "atom.icon_button", "props": { "icon": "userCircle", "size": 64, "color": "$semantic.success", "mb": 24 } },
+        { "type": "atom.text", "props": { "text": "OPERATOR REGISTRATION", "color": "$semantic.text_primary", "size": 28, "weight": "bold", "mb": 40, "letter_spacing": 1 } },
+        { "type": "atom.input", "props": { "bind_key": "form.name", "label": "Codename", "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 12, "mb": 16 } },
+        { "type": "atom.input", "props": { "bind_key": "form.email", "label": "Secure Email", "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 12, "mb": 16 } },
+        { "type": "atom.input", "props": { "bind_key": "form.password", "label": "Set Password", "is_password": true, "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 12, "mb": 32 } },
+        { 
+          "type": "atom.button", 
+          "props": { 
+            "label": "REGISTER & ACCESS", "bg_color": "$semantic.success", "text_color": "#000000", "width": "100%", "height": 56, "radius": 12, "weight": "bold", "mb": 24, "shadow_color": "$semantic.success", "shadow_blur": 20,
+            "action": "ACT_LOGIN_HTTP", "payload": { "url": "/v1/auth/register", "field_mapping": { "name": "form.name", "email": "form.email", "password": "form.password" } } 
+          } 
+        },
+        { 
+          "type": "atom.button", 
+          "props": { 
+            "label": "Cancel operation", "bg_color": "transparent", "text_color": "$semantic.text_muted", "width": "100%", 
+            "action": "ACT_NAVIGATE_SLOT", "payload": { "region_id": "content", "target_id": "frag.auth.login" } 
+          } 
+        }
+      ]
+    }
+  },
+  {
+    "id": "frag.app.sidebar",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android", "macos"],
+    "props": {
+      "padding": 24,
+      "align": "start",
+      "children": [
+        { 
+          "type": "atom.row",
+          "props": {
+            "gap": 12, "mb": 48, "align": "center",
+            "children": [
+              { "type": "atom.icon_button", "props": { "icon": "robot", "color": "#000000", "bg_color": "$color.accent.primary", "radius": 8 } },
+              { "type": "atom.text", "props": { "text": "DEVXURY", "color": "$semantic.text_primary", "size": 22, "weight": "900", "letter_spacing": 2, "font": "$font.family.display" } }
+            ]
+          }
+        },
+        { "type": "atom.text", "props": { "text": "DASHBOARD", "color": "$semantic.text_muted", "size": 10, "weight": "bold", "mb": 16, "letter_spacing": 1.5 } },
+        { "type": "atom.button", "props": { "label": "⊞  Overview", "bg_color": "transparent", "text_color": "$semantic.text_muted", "width": "100%", "align": "left", "mb": 4, "radius": 8, "action": "nav.overlay_close", "payload": {"id": "drawer"} } },
+        { "type": "atom.button", "props": { "label": "👥  Active Agents", "bg_color": "#0DFFFFFF", "text_color": "$color.accent.primary", "width": "100%", "align": "left", "mb": 32, "radius": 8, "border_color": "$color.accent.primary", "border_width": 1, "action": "ACT_NAVIGATE_SLOT", "payload": { "region_id": "main_content", "target_id": "frag.app.users_dashboard" } } },
+        { "type": "atom.text", "props": { "text": "COMMUNICATION", "color": "$semantic.text_muted", "size": 10, "weight": "bold", "mb": 16, "letter_spacing": 1.5 } },
+        { "type": "atom.button", "props": { "label": "💬  Private Inbox", "bg_color": "transparent", "text_color": "$semantic.text_muted", "width": "100%", "align": "left", "mb": 4, "radius": 8, "action": "ACT_NAVIGATE_SLOT", "payload": { "region_id": "main_content", "target_id": "frag.app.my_messages" } } },
+        { "type": "atom.spacer", "props": { "height": 100 } },
+        { "type": "atom.box", "props": { "height": 1, "bg_color": "#1AFFFFFF", "width": "100%", "mb": 24 } },
+        { "type": "atom.button", "props": { "label": "🚪 Logout", "bg_color": "transparent", "text_color": "$semantic.critical", "width": "100%", "align": "left", "action": "ACT_LOGOUT" } }
+      ]
+    }
+  },
+  {
+    "id": "frag.app.header",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android"],
+    "props": {
+      "padding": [16, 32],
+      "blur": 20,
+      "bg_color": "#CC050505", 
+      "border_color": "$border.color.muted",
+      "border_width": { "bottom": 1 },
+      "children": [
+        {
+          "type": "atom.row",
+          "props": {
+            "justify": "space_between", "align": "center",
+            "children": [
+              { 
+                  "type": "macro.responsive",
+                  "props": {
+                      "mobile": { "type": "atom.icon_button", "props": { "icon": "list", "color": "$color.accent.primary", "action": "ui.toast", "payload": { "message": "Use left edge to open menu" } } },
+                      "desktop": { "type": "atom.input", "props": { "label": "Search command or agent...", "width": 400, "bg_color": "#1AFFFFFF", "border_color": "transparent", "radius": 12, "hint_color": "$semantic.text_muted" } }
+                  }
+              },
+              {
+                "type": "atom.row",
+                "props": {
+                  "gap": 16, "align": "center",
+                  "children": [
+                    { "type": "atom.icon_button", "props": { "icon": "bell", "color": "$semantic.text_muted" } },
+                    { "type": "atom.box", "props": { "width": 1, "height": 24, "bg_color": "#33FFFFFF" } },
+                    { "type": "atom.text", "props": { "text": "$ctx.name", "color": "$semantic.text_primary", "weight": "bold" } },
+                    { "type": "atom.box", "props": { "width": 40, "height": 40, "radius": 20, "gradient": ["#FFFF6D00", "#FFD50000"], "shadow_color": "$shadow.glow.primary", "shadow_blur": 15, "align": "center", "justify": "center", "children": [ { "type": "atom.text", "props": { "text": "OP", "color": "#FFF", "weight": "bold", "size": 12 } } ] } }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "frag.app.users_dashboard",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android"],
+    "props": {
+      "padding": 40,
+      "width": "100%",
+      "motion": "fade_in",
+      "children": [
+        {
+          "type": "atom.row",
+          "props": {
+            "justify": "space_between", "mb": 40,
+            "children": [
+              { 
+                "type": "atom.column", 
+                "props": { "children": [
+                  { "type": "atom.text", "props": { "text": "Agent Database", "size": 32, "color": "$semantic.text_primary", "weight": "bold", "mb": 8 } },
+                  { "type": "atom.text", "props": { "text": "Management and encrypted communication with field operatives.", "size": 16, "color": "$semantic.text_muted" } }
+                ]}
+              },
+              { "type": "atom.button", "props": { "label": "+ New Agent", "bg_color": "$color.accent.primary", "text_color": "#000", "radius": 12, "padding": [20, 16], "weight": "bold" } }
+            ]
+          }
+        },
+        {
+          "type": "atom.box",
+          "props": {
+            "border_color": "$border.color.muted", "border_width": 1, "radius": 16, "bg_color": "#08FFFFFF",
+            "children": [
+              {
+                "type": "atom.row",
+                "props": {
+                  "justify": "space_between", "padding": 20, "border_color": "$border.color.muted", "border_width": { "bottom": 1 },
+                  "children": [
+                    { "type": "atom.text", "props": { "text": "AGENT", "color": "$semantic.text_muted", "weight": "bold", "size": 12, "flex": 2 } },
+                    { "type": "atom.text", "props": { "text": "SECURE EMAIL", "color": "$semantic.text_muted", "weight": "bold", "size": 12, "flex": 2 } },
+                    { "type": "atom.text", "props": { "text": "STATUS", "color": "$semantic.text_muted", "weight": "bold", "size": 12, "flex": 1 } },
+                    { "type": "atom.text", "props": { "text": "ACTIONS", "color": "$semantic.text_muted", "weight": "bold", "size": 12, "flex": 1, "align": "right" } }
+                  ]
+                }
+              },
+              {
+                "type": "atom.virtual_list",
+                "props": {
+                  "data": "$ctx.users", "shrink_wrap": true,
+                  "templates": {
+                    "default": {
+                      "type": "atom.box",
+                      "props": {
+                        "bg_color": "transparent", "padding": [20, 20], "border_color": "$border.color.muted", "border_width": { "bottom": 1 }, "motion": "fade_in",
+                        "children": [
+                          {
+                            "type": "atom.row",
+                            "props": {
+                              "align": "center",
+                              "children": [
+                                {
+                                  "type": "atom.row", "props": { "flex": 2, "gap": 16, "align": "center", "children": [ 
+                                    { "type": "atom.box", "props": { "width": 40, "height": 40, "radius": 12, "bg_color": "#1AFFFFFF", "align": "center", "justify": "center", "children": [ { "type": "atom.icon_button", "props": { "icon": "userCircle", "color": "$semantic.text_primary", "size": 24 } } ] } }, 
+                                    { "type": "atom.text", "props": { "text": "$item.name", "color": "$semantic.text_primary", "weight": "bold", "size": 16 } } 
+                                  ] }
+                                },
+                                { "type": "atom.text", "props": { "text": "$item.email", "color": "$semantic.text_muted", "flex": 2 } },
+                                { "type": "atom.box", "props": { "flex": 1, "children": [ { "type": "atom.box", "props": { "bg_color": "#1A00E676", "padding": [8, 4], "radius": 6, "children": [ { "type": "atom.text", "props": { "text": "●  Active", "color": "$semantic.success", "size": 12, "weight": "bold" } } ] } } ] } },
+                                {
+                                  "type": "atom.button",
+                                  "props": {
+                                    "label": "Send Message", "bg_color": "#0DFFFFFF", "text_color": "$color.accent.primary", "flex": 1, "radius": 8, "padding": [12, 8], "weight": "bold", "size": 12, "border_color": "$color.accent.primary", "border_width": 1,
+                                    "action": "nav.overlay_open",
+                                    "payload": {
+                                      "id": "msg_modal",
+                                      "component": {
+                                        "type": "atom.box",
+                                        "props": {
+                                          "width": 500, "padding": 40, "radius": 24, "blur": 40, "gradient": ["#F20A0A0A", "#E6000000"], "border_color": "$color.accent.primary", "border_width": 1, "shadow_color": "$shadow.glow.primary", "shadow_blur": 60, "align": "center", "motion": "scale_bouncy",
+                                          "children": [
+                                            { "type": "atom.icon_button", "props": { "icon": "appWindow", "size": 48, "color": "$color.accent.primary", "mb": 24 } },
+                                            { "type": "atom.text", "props": { "text": "DEVXURY CHANNEL", "color": "$semantic.text_muted", "size": 12, "weight": "bold", "letter_spacing": 2, "mb": 8 } },
+                                            { "type": "atom.text", "props": { "text": "Message for $item.name", "color": "$semantic.text_primary", "size": 24, "weight": "bold", "mb": 32 } },
+                                            { "type": "atom.input", "props": { "bind_key": "form.msg_text", "label": "Type content here...", "lines": 5, "bg_color": "#1A000000", "text_color": "$semantic.text_primary", "hint_color": "$semantic.text_muted", "border_color": "$border.color.muted", "radius": 16, "mb": 32 } },
+                                            {
+                                              "type": "atom.row", "props": { "gap": 16, "children": [
+                                                { "type": "atom.button", "props": { "label": "Cancel", "bg_color": "transparent", "text_color": "$semantic.text_muted", "flex": 1, "height": 50, "action": "nav.overlay_close", "payload": {"id": "msg_modal"} } },
+                                                { 
+                                                  "type": "atom.button",
+                                                  "props": {
+                                                    "label": "TRANSMIT DATA", "bg_color": "$color.accent.primary", "text_color": "#000", "flex": 2, "weight": "bold", "height": 50, "radius": 12, "shadow_color": "$shadow.glow.primary", "shadow_blur": 15,
+                                                    "action": "net.http_request",
+                                                    "payload": { "url": "/v1/chat/send", "body": { "receiver_id": "$item.user_id", "sender_name": "$ctx.name" }, "field_mapping": { "text": "form.msg_text" } }
+                                                  }
+                                                }
+                                              ]}
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "frag.app.my_messages",
+    "type": "atom.box",
+    "platforms": ["web", "ios", "android"],
+    "props": {
+      "padding": 40, "width": "100%", "motion": "slide_in_right",
+      "children": [
+        { "type": "atom.text", "props": { "text": "Private Inbox", "size": 32, "color": "$semantic.text_primary", "weight": "bold", "mb": 8 } },
+        { "type": "atom.text", "props": { "text": "Incoming transmissions from other agents.", "size": 16, "color": "$semantic.text_muted", "mb": 40 } },
+        {
+          "type": "atom.virtual_list",
+          "props": {
+            "data": "$ctx.my_messages", "shrink_wrap": true,
+            "templates": {
+              "default": {
+                "type": "atom.box",
+                "props": {
+                  "gradient": ["#1AFFFFFF", "#05FFFFFF"], "radius": 16, "padding": 32, "mb": 24, "border_color": "$color.accent.primary", "border_width": 1, "shadow_color": "$shadow.glow.primary", "shadow_blur": 15, "motion": "spring_up",
+                  "children": [
+                    { "type": "atom.row", "props": { "mb": 16, "children": [ { "type": "atom.icon_button", "props": { "icon": "shieldCheck", "size": 24, "color": "$color.accent.primary" } }, { "type": "atom.text", "props": { "text": "Transmission from: $item.sender", "color": "$color.accent.primary", "weight": "bold", "size": 14, "letter_spacing": 1 } } ] } },
+                    { "type": "atom.text", "props": { "text": "$item.text", "color": "$semantic.text_primary", "size": 18, "line_height": 1.5 } }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+]

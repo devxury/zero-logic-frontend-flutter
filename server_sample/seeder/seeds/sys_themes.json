@@ -1,0 +1,77 @@
+[
+  {
+    "id": "demo-devxury",
+    "semantics": {
+      "meta.name": "devxury_orange_neon",
+      "meta.version": "2.0.0",
+
+      "semantic.background": "#FF050505",
+      "semantic.surface": "#FF0F0F10",
+      "semantic.primary": "#FFFF6D00",
+      "semantic.critical": "#FFFF1744",
+      "semantic.success": "#FF00E676",
+      "semantic.warning": "#FFFFC400",
+      "semantic.text_primary": "#FFFFFFFF",
+      "semantic.text_muted": "#80FFFFFF",
+
+      "color.background.page": "#FF050505",
+      "color.background.canvas": "#FF0A0A0A",
+      "color.background.sidebar": "#FF080808",
+      "color.background.panel": "#FF101010",
+      "color.background.glass": "#08FFFFFF",
+
+      "color.text.primary": "#FFFFFFFF",
+      "color.text.high": "#F0F0F0FF",
+      "color.text.normal": "#E0E0E0FF",
+      "color.text.muted": "#80FFFFFF",
+      "color.text.placeholder": "#50FFFFFF",
+      "color.text.disabled": "#20FFFFFF",
+
+      "color.brand.orange.100": "#FFFFD180",
+      "color.brand.orange.200": "#FFFFAB40",
+      "color.brand.orange.300": "#FFFF9100",
+      "color.brand.orange.400": "#FFFF6D00",
+      "color.brand.orange.500": "#FFFF3D00",
+      "color.brand.orange.600": "#FFDD2C00",
+
+      "color.accent.primary": "#FFFF6D00",
+      "color.accent.primaryStrong": "#FFFF3D00",
+      "color.accent.secondary": "#FFFFAB40",
+
+      "color.divider": "#15FFFFFF",
+      "color.focus": "#29FF6D00",
+
+      "color.status.success": "#FF00E676",
+      "color.status.warning": "#FFFFC400",
+      "color.status.danger": "#FFFF1744",
+
+      "font.family.primary": "Inter, Roboto, sans-serif",
+      "font.family.display": "Rajdhani, Inter, sans-serif",
+
+      "font.weight.thin": 300,
+      "font.weight.regular": 400,
+      "font.weight.medium": 500,
+      "font.weight.bold": 700,
+      "font.weight.black": 900,
+
+      "radius.xs": 4,
+      "radius.sm": 8,
+      "radius.md": 12,
+      "radius.lg": 16,
+      "radius.xl": 24,
+      "radius.pill": 999,
+
+      "border.width.hairline": 1,
+      "border.color.default": "#1FFFFFFF",
+      "border.color.muted": "#0FFFFFFF",
+      "border.color.active": "#FFFF6D00",
+
+      "shadow.glow.primary": "#40FF6D00",
+      "shadow.glow.critical": "#40FF1744",
+      
+      "utils.glass.blur.low": 10,
+      "utils.glass.blur.medium": 20,
+      "utils.glass.blur.high": 40
+    }
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5409696372486298525",
+      "lastPropertyId": "5:3937742066658608803",
+      "name": "DeepDocument",
+      "properties": [
+        {
+          "id": "1:3110002736773246484",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7826164188169304997",
+          "name": "globalKey",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "1:4434484662759143337"
+        },
+        {
+          "id": "3:2518533319901067263",
+          "name": "collection",
+          "type": 9,
+          "flags": 2048,
+          "indexId": "2:8551319676645104403"
+        },
+        {
+          "id": "4:1620206010971665092",
+          "name": "payload",
+          "type": 9
+        },
+        {
+          "id": "5:3937742066658608803",
+          "name": "updatedAt",
+          "type": 10
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5409696372486298525",
+  "lastIndexId": "2:8551319676645104403",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

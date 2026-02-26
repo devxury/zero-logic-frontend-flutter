@@ -1,0 +1,7 @@
+[
+  {
+    "metric_type": "cpu_load",
+    "value": "12%",
+    "node_id": "nexus-core-main"
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "layout.auth",
+    "regions": ["content"],
+    "props": {
+      "template": {
+        "type": "macro.scaffold",
+        "props": {
+          "bg_color": "$semantic.background",
+          "body": {
+            "type": "atom.box",
+            "props": {
+              "width": "100%", "height": "100%", "align": "center", "justify": "center",
+              "children": [ { "type": "atom.slot", "props": { "name": "content" } } ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "layout.dashboard",
+    "regions": ["sidebar", "header", "main_content"],
+    "props": {
+      "template": {
+        "type": "macro.responsive",
+        "props": {
+          "mobile": {
+            "type": "macro.scaffold",
+            "props": {
+              "bg_color": "$semantic.background",
+              "app_bar": { "type": "atom.slot", "props": { "name": "header" } },
+              "drawer": { 
+                "type": "atom.box",
+                "props": {
+                   "width": 300, "height": "100%", "bg_color": "$color.background.sidebar",
+                   "children": [{ "type": "atom.slot", "props": { "name": "sidebar" } }]
+                }
+              },
+              "body": { "type": "atom.slot", "props": { "name": "main_content" } }
+            }
+          },
+          "desktop": {
+            "type": "macro.scaffold",
+            "props": {
+              "bg_color": "$semantic.background",
+              "body": {
+                "type": "atom.row",
+                "props": {
+                  "align": "stretch",
+                  "children": [
+                    {
+                      "type": "atom.box",
+                      "props": { 
+                        "width": 280, 
+                        "bg_color": "$color.background.sidebar",
+                        "border_color": "$border.color.muted", 
+                        "border_width": { "right": 1 }, 
+                        "children": [ { "type": "atom.slot", "props": { "name": "sidebar" } } ] 
+                      }
+                    },
+                    {
+                      "type": "atom.column",
+                      "props": {
+                        "flex": 1,
+                        "children": [
+                          { "type": "atom.slot", "props": { "name": "header" } },
+                          { "type": "atom.box", "props": { "flex": 1, "children": [ { "type": "atom.slot", "props": { "name": "main_content" } } ] } }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

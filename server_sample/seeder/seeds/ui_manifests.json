@@ -1,0 +1,28 @@
+[
+  {
+    "path": "/login", "role": "guest", "layout_id": "layout.auth",
+    "slots": { "content": ["frag.auth.login"] }, "data_resolvers": []
+  },
+  {
+    "path": "/dashboard", "role": "user", "layout_id": "layout.dashboard",
+    "slots": {
+      "sidebar": ["frag.app.sidebar"],
+      "header": ["frag.app.header"],
+      "main_content": ["frag.app.users_dashboard"]
+    },
+    "data_resolvers": [
+      {
+        "target_variable": "ctx.users",
+        "collection": "biz_users",
+        "operation": "find",
+        "query": {} 
+      },
+      {
+        "target_variable": "ctx.my_messages",
+        "collection": "biz_messages",
+        "operation": "find",
+        "query": { "receiver_id": "$context.user_id" } 
+      }
+    ]
+  }
+]
